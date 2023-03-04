@@ -1,49 +1,24 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # enjoy_recipe
-レシピを投稿するサイトです。
+* レシピを投稿するサイトです。
 
 
 ## アプリケーション概要
 ### サイトテーマ
-食材を有効的に、楽しく料理をする
+* 食材を有効的に、楽しく料理をする
 
 ### テーマを選んだ理由
-今まで作ってきた料理の記録やオリジナルレシピの備忘録として
+* 今まで作ってきた料理の記録やオリジナルレシピの備忘録として、
 他の人と共有して毎日料理を楽しんで作れるサービス、
-また食材を余らせてしまう、腐らせてしまうとよく聞くので
+また食材を余らせてしまう、腐らせてしまうとよく聞くので、
 在庫管理が出来たら便利だと考え、このテーマにしました。
 
 ### ターゲットユーザ
-毎日料理をするすべての方
+* 毎日料理をするすべての方
 
 ### 主な利用シーン
-作りたい料理のレシピを検索するとき
-自分が作った料理のレシピを投稿するとき
-食材の在庫を管理するとき
+* 作りたい料理のレシピを検索するとき
+* 自分が作った料理のレシピを投稿するとき
+* 食材の在庫を管理するとき
 
 ## 設計書
 <...>
