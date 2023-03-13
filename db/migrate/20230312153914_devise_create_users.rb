@@ -35,7 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       # 下記3行追記
       t.string :name, null: false
       t.string :avatar, null:false
-      t.boolean :is_deleted, null: false, default: "FALSE"
+      t.boolean :is_deleted, null: false, default: false
 
       t.timestamps null: false
     end
