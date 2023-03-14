@@ -1,14 +1,29 @@
 Rails.application.routes.draw do
 
-
-
-  get 'inventories/edit'
-  get 'inventories/new'
-  get 'inventories/show'
   root 'homes#index'
   get 'recipes/tweet', to: 'homes#tweet_index'
   get 'recipes/tag/:name', to: "recipes#tag_search"
   get 'recipes/search', to: 'recipes#search'
+
+  get 'users/:id/reregistration', to: 'users#reregistration', as: 'reregistration'
+  patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
+  resources :users
+
+  resources :users do
+    member do
+      get :following, :followers, :favorites, :interests, :inventories, :unsubscribe
+    end
+  end
 
   resources :relationships, only: [:create, :destroy]
 
