@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users/:id/reregistration', to: 'users#reregistration', as: 'reregistration'
   patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
 
+  # devise_for下記記述を削除すると$ rails routes が有効になる
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
