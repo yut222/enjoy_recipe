@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_14_111459) do
+ActiveRecord::Schema.define(version: 2023_03_14_112255) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,10 +70,11 @@ ActiveRecord::Schema.define(version: 2023_03_14_111459) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "user_id", null: false
     t.integer "quantity", null: false
     t.date "expiration_date", null: false
     t.text "memo"
-    t.integer "user_id", null: false
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_inventories_on_user_id"
@@ -105,6 +106,15 @@ ActiveRecord::Schema.define(version: 2023_03_14_111459) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "steps", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.text "direction", null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipe_id"], name: "index_steps_on_recipe_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -151,4 +161,5 @@ ActiveRecord::Schema.define(version: 2023_03_14_111459) do
   add_foreign_key "recipe_tag_relations", "recipes"
   add_foreign_key "recipe_tag_relations", "tags"
   add_foreign_key "recipes", "users"
+  add_foreign_key "steps", "recipes"
 end
